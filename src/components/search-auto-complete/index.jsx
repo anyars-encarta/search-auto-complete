@@ -38,7 +38,7 @@ const SearchAutoComplete = () => {
         const query = e.target.value.toLowerCase()
         setSearchParam(query);
 
-        if (query > 1) {
+        if (query.length > 1) {
           const filteredData = users && users.length ?
           users.filter(item => item.toLowerCase).indexOf(query) > -1
           : []
