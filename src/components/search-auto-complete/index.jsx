@@ -24,6 +24,13 @@ const SearchAutoComplete = () => {
         }
     }
 
+    const handleClick = (e) => {
+    //   console.log(e.target.innerText)
+      setShowDropdown(false)
+      setSearchParam(e.target.innerText)
+      setFilteredUsers([])
+    };
+
     const fetchUsers = async () => {
         try {
             setLoading(true);
@@ -41,14 +48,9 @@ const SearchAutoComplete = () => {
         };
     };
 
-    console.log(users);
     useEffect(() => {
         fetchUsers();
     }, []);
-
-    
-
-    console.log(users, filteredUsers);
 
     if (errorMessage) {
         return <div>There was an error: {errorMessage}</div>
@@ -69,7 +71,7 @@ const SearchAutoComplete = () => {
             )}
 
             {
-                showDropdown && <Suggestions data={filteredUsers} />
+                showDropdown && <Suggestions handleClick={handleClick} data={filteredUsers} />
             }
         </div>
     );
