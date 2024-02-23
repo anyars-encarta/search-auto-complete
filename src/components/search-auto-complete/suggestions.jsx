@@ -1,4 +1,4 @@
-const Suggestions = (data) => {
+const Suggestions = ({data}) => {
     return (
         <ul>
             {
@@ -7,7 +7,7 @@ const Suggestions = (data) => {
                 : null
             }
         </ul>
-    )
+    );
 };
 
 export default Suggestions;
