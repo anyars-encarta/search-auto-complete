@@ -40,7 +40,7 @@ const SearchAutoComplete = () => {
 
         if (query.length > 1) {
           const filteredData = users && users.length ?
-          users.filter(item => item.toLowerCase).indexOf(query) > -1
+          users.filter(item => item.toLowerCase().indexOf(query) > -1)
           : []
           setFilteredUsers(filteredData);
           setShowDropdown(true);
@@ -50,6 +50,10 @@ const SearchAutoComplete = () => {
     }
 
     console.log(users, filteredUsers);
+
+    if (errorMessage) {
+        return <div>There was an error: {errorMessage}</div>
+    };
 
     return (
         <div className="search-auto-complete-container">
