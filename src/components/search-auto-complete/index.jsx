@@ -50,9 +50,9 @@ const SearchAutoComplete = () => {
 
     console.log(users, filteredUsers);
 
-    // if (errorMessage) {
-    //     return <div>There was an error: {errorMessage}</div>
-    // };
+    if (errorMessage) {
+        return <div>There was an error: {errorMessage}</div>
+    };
 
     return (
         <div className="search-auto-complete-container">
